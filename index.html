@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>GESTURE MANAGEMENT</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="page-wapper">
+    <header id="header">
+      <div class="outbox">
+        <div class="skbox">
+          <a href="javascript:void(0)">上传<input type="file" name="pic" id="pic"
+              accept="image/jpeg,image/jpg,image/png,image/svg"> </a>
+        </div>
+      </div>
+      <div class="tagbox">
+        <button id="change" onclick="upload();" style="height: 25px;width: 70px">更新</button>
+      </div>
+      <!-- <div class="delectbox">
+        <button id="delect" onclick="test();">删除</button>
+      </div> -->
+      <div class="logo">
+        <h1>GESTURE MANAGEMENT</h1>
+      </div>
+      <nav id="nav-bar">
+        <ul>
+          <li class="classification">classification</li>
+          <li class="clustering">clustering</li>
+        </ul>
+      </nav>
+
+      <div id="middle-bar">
+        <div id="FORM">
+          <select id="dropdown">
+            <option disabled selected value>FORM</option>
+            <option value="static pose">static pose</option>
+            <option value="dynamic pose">dynamic pose</option>
+            <option value="static pose and path">st-pose</option>
+            <option value="dynamic pose and path">dy-pose</option>
+          </select>
+        </div>
+
+        <div id="NATURE">
+          <select id="dropdown">
+            <option disabled selected value>NATURE</option>
+            <option value="Symbolic">Symbolic</option>
+            <option value="physical">physical</option>
+            <option value="metaphorical">metaphorical</option>
+            <option value="abstract">abstract</option>
+          </select>
+        </div>
+
+        <div id="BINDING">
+          <select id="dropdown">
+            <option disabled selected value>BINDING</option>
+            <option value="object-centric">obj-centric</option>
+            <option value="world-dependent">w-dependent</option>
+            <option value="world-independent">w-independent</option>
+            <option value="mixed dependencies">mixed</option>
+          </select>
+        </div>
+
+        <div id="FLOW">
+          <select id="dropdown">
+            <option disabled selected value>FLOW</option>
+            <option value="Discrete">Discrete</option>
+            <option value="continuous">continuous</option>
+          </select>
+        </div>
+
+        <div id="SYMMETRY">
+          <select id="dropdown">
+            <option disabled selected value>SYMMETRY</option>
+            <option value="dominant unimanual">do-unimanual</option>
+            <option value="nondominant unimanual">non-unimanual</option>
+            <option value="symmetric bimanual">sy-bimanual</option>
+            <option value="asymmetric bimanual">asy-bimanual</option>
+          </select>
+        </div>
+
+        <div id="LOCALE">
+          <select id="dropdown">
+            <option disabled selected value>LOCALE</option>
+            <option value="on-the-surface">surface</option>
+            <option value="in-the-air">air</option>
+            <option value="mixed locales">mixed</option>
+          </select>
+        </div>
+
+        <div id="screening-boxes">
+
+          <div class="screening-box">
+            <div id="screening1" class="screening" draggable="true" ondragstart="drag(event)">static pose</div>
+            <div id="screening2" class="screening" draggable="true" ondragstart="drag(event)">dynamic pose</div>
+            <div id="screening3" class="screening" draggable="true" ondragstart="drag(event)">st-pose</div>
+            <div id="screening4" class="screening" draggable="true" ondragstart="drag(event)">dy-pose</div>
+          </div>
+
+          <div class="lines"></div>
+
+          <div class="screening-box">
+            <div id="screening5" class="screening" draggable="true" ondragstart="drag(event)">Symbolic</div>
+            <div id="screening6" class="screening" draggable="true" ondragstart="drag(event)">physical</div>
+            <div id="screening7" class="screening" draggable="true" ondragstart="drag(event)">metaphorical</div>
+            <div id="screening8" class="screening" draggable="true" ondragstart="drag(event)">abstract</div>
+          </div>
+
+          <div class="lines"></div>
+          <div class="screening-box">
+            <div id="screening9" class="screening" draggable="true" ondragstart="drag(event)">obj-centric</div>
+            <div id="screening10" class="screening" draggable="true" ondragstart="drag(event)">w-dependent</div>
+            <div id="screening11" class="screening" draggable="true" ondragstart="drag(event)">w-independent</div>
+            <div id="screening12" class="screening" draggable="true" ondragstart="drag(event)">mixed</div>
+          </div>
+
+          <div class="lines"></div>
+          <div class="screening-box">
+            <div id="screening13" class="screening" draggable="true" ondragstart="drag(event)">Discrete</div>
+            <div id="screening14" class="screening" draggable="true" ondragstart="drag(event)">continuous</div>
+          </div>
+
+          <div class="lines"></div>
+          <div class="screening-box">
+            <div id="screening15" class="screening" draggable="true" ondragstart="drag(event)">do-uniman</div>
+            <div id="screening16" class="screening" draggable="true" ondragstart="drag(event)">non-uniman</div>
+            <div id="screening17" class="screening" draggable="true" ondragstart="drag(event)">sy-biman</div>
+            <div id="screening18" class="screening" draggable="true" ondragstart="drag(event)">asy-biman</div>
+          </div>
+
+          <div class="lines"></div>
+          <div class="screening-box">
+            <div id="screening19" class="screening" draggable="true" ondragstart="drag(event)">surface</div>
+            <div id="screening20" class="screening" draggable="true" ondragstart="drag(event)">air</div>
+            <div id="screening21" class="screening" draggable="true" ondragstart="drag(event)">mixed</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="main-section" draggable="false"></div>
+  </div>
+</body>
+
+
+<!-- js部分引入 -->
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="tag.js"></script>
+<script type="text/javascript" src="getdata.js"></script>
+
+</html>
